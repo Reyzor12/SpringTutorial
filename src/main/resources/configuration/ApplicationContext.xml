@@ -3,6 +3,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="t1000" class="ru.testspring.impl.robot.ModelT1000"></bean>
+    <bean id="t1000" class="ru.testspring.impl.robot.ModelT1000">
+        <constructor-arg ref="sonyLeg"/>
+        <constructor-arg ref="sonyHead"/>
+        <constructor-arg ref="sonyHand"/>
+    </bean>
+
+    <bean id="sonyHand" class="ru.testspring.impl.sony.SonyHand"/>
+    <bean id="sonyHead" class="ru.testspring.impl.sony.SonyHead"/>
+    <bean id="sonyLeg" class="ru.testspring.impl.sony.SonyLeg"/>
+
+    <bean id="toshibaHand" class="ru.testspring.impl.toshiba.ToshibaHand"/>
+    <bean id="toshibaHead" class="ru.testspring.impl.toshiba.ToshibaHead"/>
+    <bean id="toshibaLeg" class="ru.testspring.impl.toshiba.ToshibaLeg"/>
 
 </beans>
