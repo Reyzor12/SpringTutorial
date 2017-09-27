@@ -30,6 +30,6 @@ public class ModelT1000 implements Robot {
 
     public void dance() {
 
-        System.out.println("Hello");
+        System.out.println("Hello T1000");
     }
 }
