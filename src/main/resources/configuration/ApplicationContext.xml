@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="t1000" class="ru.testspring.impl.robot.ModelT1000">
+    <bean id="t1000" class="ru.testspring.impl.robot.ModelT1000"
+    p:hand-ref="toshibaHand"
+    p:head-ref="toshibaHead"
+    p:leg-ref="sonyLeg">
         <constructor-arg value="red" index="0" type="String"/>
         <constructor-arg value="2006" index="1" type="int"/>
         <constructor-arg value="true" index="2" type="boolean"/>
 
-        <property name="hand" ref="toshibaHand"/>
+    <!--    <property name="hand" ref="toshibaHand"/>
         <property name="head" ref="toshibaHead"/>
-        <property name="leg" ref="toshibaLeg"/>
+        <property name="leg" ref="toshibaLeg"/>-->
     </bean>
 
     <bean id="sonyHand" class="ru.testspring.impl.sony.SonyHand"/>
