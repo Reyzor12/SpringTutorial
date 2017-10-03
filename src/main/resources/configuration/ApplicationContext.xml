@@ -18,6 +18,12 @@
         <property name="leg" ref="toshibaLeg"/>-->
     </bean>
 
+    <bean id="t1000Empty" class="ru.testspring.impl.robot.ModelT1000">
+        <constructor-arg ref="sonyLeg"/>
+        <constructor-arg ref="sonyHead"/>
+        <constructor-arg ref="toshibaHand"/>
+    </bean>
+
     <bean id="sonyHand" class="ru.testspring.impl.sony.SonyHand"/>
     <bean id="sonyHead" class="ru.testspring.impl.sony.SonyHead"/>
     <bean id="sonyLeg" class="ru.testspring.impl.sony.SonyLeg"/>

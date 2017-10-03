@@ -11,5 +11,8 @@ public class Start {
         ApplicationContext context = new ClassPathXmlApplicationContext("configuration/ApplicationContext.xml");
         ModelT1000 robot = (ModelT1000)context.getBean("t1000");
         robot.action();
+
+        ModelT1000 robot1 = (ModelT1000)context.getBean("t1000Empty");
+        robot1.action();
     }
 }
