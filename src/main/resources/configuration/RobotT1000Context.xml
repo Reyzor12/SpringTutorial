@@ -7,11 +7,13 @@
 >
     <import resource="SonyContext.xml"/>
     <import resource="ToshibaContext.xml"/>
+    <import resource="DatabaseContext.xml"/>
 
     <bean id="t1000default" class="ru.testspring.impl.robot.ModelT1000"
           p:hand-ref="sonyHand"
           p:head-ref="sonyHead"
           p:leg-ref="sonyLeg"
+          depends-on="databaseConnection"
     >
         <constructor-arg value="red" index="0" type="String"/>
         <constructor-arg value="2006" index="1" type="int"/>
