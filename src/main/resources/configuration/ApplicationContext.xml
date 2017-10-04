@@ -6,18 +6,25 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="t1000" class="ru.testspring.impl.robot.ModelT1000"
+    <bean id="t1000default" class="ru.testspring.impl.robot.ModelT1000"
     p:hand-ref="toshibaHand"
     p:head-ref="toshibaHead"
     p:leg-ref="sonyLeg">
         <constructor-arg value="red" index="0" type="String"/>
         <constructor-arg value="2006" index="1" type="int"/>
         <constructor-arg value="true" index="2" type="boolean"/>
-
-    <!--    <property name="hand" ref="toshibaHand"/>
-        <property name="head" ref="toshibaHead"/>
-        <property name="leg" ref="toshibaLeg"/>-->
     </bean>
+
+    <bean id="t1000scopeSingleton" class="ru.testspring.impl.robot.ModelT1000"
+          c:leg-ref="sonyLeg"
+          c:head-ref="toshibaHead"
+          c:hand-ref="sonyHand"
+          scope="singleton"  />
+    <bean id="t1000scopePrototype" class="ru.testspring.impl.robot.ModelT1000"
+          c:leg-ref="sonyLeg"
+          c:head-ref="sonyHead"
+          c:hand-ref="toshibaHand"
+          scope="prototype"/>
 
     <bean id="t1000Empty" class="ru.testspring.impl.robot.ModelT1000">
         <constructor-arg ref="sonyLeg"/>
