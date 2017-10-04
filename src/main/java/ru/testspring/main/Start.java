@@ -14,5 +14,8 @@ public class Start {
 
         ModelT1000 robot1 = (ModelT1000)context.getBean("t1000Empty");
         robot1.action();
+
+        ModelT1000 robot2=(ModelT1000)context.getBean("t1000Full");
+        robot2.action();
     }
 }
