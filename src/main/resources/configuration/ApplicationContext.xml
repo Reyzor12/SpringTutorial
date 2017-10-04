@@ -30,6 +30,7 @@
           scope="singleton"
           init-method="initScopeSingleton"
           destroy-method="destroyScopeSingleton"
+          lazy-init="true"
           />
     <bean id="t1000scopePrototype" class="ru.testspring.impl.robot.ModelT1000"
           c:leg-ref="sonyLeg"
@@ -37,7 +38,8 @@
           c:hand-ref="sonyHand"
           scope="prototype"
           init-method="initScopePrototype"
-          destroy-method="destroyScopePrototype"/>
+          destroy-method="destroyScopePrototype"
+          />
 
     <bean id="t1000Empty" class="ru.testspring.impl.robot.ModelT1000">
         <constructor-arg ref="sonyLeg"/>
