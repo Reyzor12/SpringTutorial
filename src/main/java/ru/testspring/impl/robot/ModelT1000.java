@@ -1,11 +1,13 @@
 package ru.testspring.impl.robot;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import ru.testspring.interfaces.Hand;
 import ru.testspring.interfaces.Head;
 import ru.testspring.interfaces.Leg;
 import ru.testspring.interfaces.Robot;
 
-public class ModelT1000 implements Robot {
+public class ModelT1000 implements Robot,InitializingBean,DisposableBean {
 
     private Leg leg;
     private Head head;
@@ -87,7 +89,7 @@ public class ModelT1000 implements Robot {
     }
 
     public void destroy(){
-        System.out.println("DESTROY");
+        System.out.println("DESTROY!!!");
     }
 
     public void initScopeSingleton(){
@@ -112,5 +114,9 @@ public class ModelT1000 implements Robot {
 
     public void destroyDefault(){
         System.out.println("DESTROY DEFAUL");
+    }
+
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("INIT!!!");
     }
 }

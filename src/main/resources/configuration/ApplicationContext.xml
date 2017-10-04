@@ -5,8 +5,6 @@
        xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 
-       default-init-method="initDefault"
-       default-destroy-method="destroyDefault"
 
 >
 
@@ -16,8 +14,7 @@
     p:hand-ref="sonyHand"
     p:head-ref="sonyHead"
     p:leg-ref="sonyLeg"
-    init-method="init"
-    destroy-method="destroy">
+    >
         <constructor-arg value="red" index="0" type="String"/>
         <constructor-arg value="2006" index="1" type="int"/>
         <constructor-arg value="true" index="2" type="boolean"/>
@@ -28,8 +25,7 @@
           c:head-ref="sonyHead"
           c:hand-ref="sonyHand"
           scope="singleton"
-          init-method="initScopeSingleton"
-          destroy-method="destroyScopeSingleton"
+
           lazy-init="true"
           />
     <bean id="t1000scopePrototype" class="ru.testspring.impl.robot.ModelT1000"
@@ -37,8 +33,7 @@
           c:head-ref="sonyHead"
           c:hand-ref="sonyHand"
           scope="prototype"
-          init-method="initScopePrototype"
-          destroy-method="destroyScopePrototype"
+
           />
 
     <bean id="t1000Empty" class="ru.testspring.impl.robot.ModelT1000">
@@ -63,5 +58,7 @@
     <bean id="toshibaHand" class="ru.testspring.impl.toshiba.ToshibaHand"/>
     <bean id="toshibaHead" class="ru.testspring.impl.toshiba.ToshibaHead"/>
     <bean id="toshibaLeg" class="ru.testspring.impl.toshiba.ToshibaLeg"/>
+
+    <bean class="ru.testspring.main.MyBeanPostProcessor"/>
 
 </beans>
