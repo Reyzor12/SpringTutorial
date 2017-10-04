@@ -105,4 +105,12 @@ public class ModelT1000 implements Robot {
     public void destroyScopePrototype(){
         System.out.println("DESTROY PROTOTYPE");
     }
+
+    public void initDefault(){
+        System.out.println("INIT DEFAUL");
+    }
+
+    public void destroyDefault(){
+        System.out.println("DESTROY DEFAUL");
+    }
 }

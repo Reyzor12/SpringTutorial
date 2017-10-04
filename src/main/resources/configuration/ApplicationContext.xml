@@ -5,7 +5,8 @@
        xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 
-
+       default-init-method="initDefault"
+       default-destroy-method="destroyDefault"
 
 >
 
@@ -28,7 +29,8 @@
           c:hand-ref="sonyHand"
           scope="singleton"
           init-method="initScopeSingleton"
-          destroy-method="destroyScopeSingleton"/>
+          destroy-method="destroyScopeSingleton"
+          />
     <bean id="t1000scopePrototype" class="ru.testspring.impl.robot.ModelT1000"
           c:leg-ref="sonyLeg"
           c:head-ref="sonyHead"
