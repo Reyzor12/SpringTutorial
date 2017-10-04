@@ -7,8 +7,8 @@
 
 
     <bean id="t1000default" class="ru.testspring.impl.robot.ModelT1000"
-    p:hand-ref="toshibaHand"
-    p:head-ref="toshibaHead"
+    p:hand-ref="sonyHand"
+    p:head-ref="sonyHead"
     p:leg-ref="sonyLeg">
         <constructor-arg value="red" index="0" type="String"/>
         <constructor-arg value="2006" index="1" type="int"/>
@@ -17,13 +17,13 @@
 
     <bean id="t1000scopeSingleton" class="ru.testspring.impl.robot.ModelT1000"
           c:leg-ref="sonyLeg"
-          c:head-ref="toshibaHead"
+          c:head-ref="sonyHead"
           c:hand-ref="sonyHand"
           scope="singleton"  />
     <bean id="t1000scopePrototype" class="ru.testspring.impl.robot.ModelT1000"
           c:leg-ref="sonyLeg"
           c:head-ref="sonyHead"
-          c:hand-ref="toshibaHand"
+          c:hand-ref="sonyHand"
           scope="prototype"/>
 
     <bean id="t1000Empty" class="ru.testspring.impl.robot.ModelT1000">
@@ -41,8 +41,8 @@
         c:soundEnable="true"
     />
 
-    <bean id="sonyHand" class="ru.testspring.impl.sony.SonyHand"/>
-    <bean id="sonyHead" class="ru.testspring.impl.sony.SonyHead"/>
+    <bean id="sonyHand" class="ru.testspring.impl.sony.SonyHand" scope="prototype"/>
+    <bean id="sonyHead" class="ru.testspring.impl.sony.SonyHead" scope="singleton"/>
     <bean id="sonyLeg" class="ru.testspring.impl.sony.SonyLeg"/>
 
     <bean id="toshibaHand" class="ru.testspring.impl.toshiba.ToshibaHand"/>
