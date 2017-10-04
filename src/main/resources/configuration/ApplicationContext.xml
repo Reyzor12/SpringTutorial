@@ -3,13 +3,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+
+
+
+>
+
 
 
     <bean id="t1000default" class="ru.testspring.impl.robot.ModelT1000"
     p:hand-ref="sonyHand"
     p:head-ref="sonyHead"
-    p:leg-ref="sonyLeg">
+    p:leg-ref="sonyLeg"
+    init-method="init"
+    destroy-method="destroy">
         <constructor-arg value="red" index="0" type="String"/>
         <constructor-arg value="2006" index="1" type="int"/>
         <constructor-arg value="true" index="2" type="boolean"/>
@@ -19,12 +26,16 @@
           c:leg-ref="sonyLeg"
           c:head-ref="sonyHead"
           c:hand-ref="sonyHand"
-          scope="singleton"  />
+          scope="singleton"
+          init-method="initScopeSingleton"
+          destroy-method="destroyScopeSingleton"/>
     <bean id="t1000scopePrototype" class="ru.testspring.impl.robot.ModelT1000"
           c:leg-ref="sonyLeg"
           c:head-ref="sonyHead"
           c:hand-ref="sonyHand"
-          scope="prototype"/>
+          scope="prototype"
+          init-method="initScopePrototype"
+          destroy-method="destroyScopePrototype"/>
 
     <bean id="t1000Empty" class="ru.testspring.impl.robot.ModelT1000">
         <constructor-arg ref="sonyLeg"/>

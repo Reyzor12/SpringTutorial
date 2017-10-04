@@ -81,4 +81,28 @@ public class ModelT1000 implements Robot {
 
         System.out.println("Hello T1000");
     }
+
+    public void init(){
+        System.out.println("INIT");
+    }
+
+    public void destroy(){
+        System.out.println("DESTROY");
+    }
+
+    public void initScopeSingleton(){
+        System.out.println("INIT SINGLETON");
+    }
+
+    public void destroyScopeSingleton(){
+        System.out.println("DESTROY SINGLETON");
+    }
+
+    public void initScopePrototype(){
+        System.out.println("INIT PROTOTYPE");
+    }
+
+    public void destroyScopePrototype(){
+        System.out.println("DESTROY PROTOTYPE");
+    }
 }

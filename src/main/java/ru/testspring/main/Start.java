@@ -10,23 +10,17 @@ public class Start {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("configuration/ApplicationContext.xml");
         ModelT1000 robot = (ModelT1000)context.getBean("t1000default");
-        System.out.println(robot.getHand());
-        System.out.println(robot.getHead());
+        System.out.println(robot);
         robot = (ModelT1000)context.getBean("t1000default");
-        System.out.println(robot.getHand());
-        System.out.println(robot.getHead());
+        System.out.println(robot);
         robot = (ModelT1000)context.getBean("t1000scopeSingleton");
-        System.out.println(robot.getHand());
-        System.out.println(robot.getHead());
+        System.out.println(robot);
         robot = (ModelT1000)context.getBean("t1000scopeSingleton");
-        System.out.println(robot.getHand());
-        System.out.println(robot.getHead());
+        System.out.println(robot);
         robot = (ModelT1000)context.getBean("t1000scopePrototype");
-        System.out.println(robot.getHand());
-        System.out.println(robot.getHead());
+        System.out.println(robot);
         robot = (ModelT1000)context.getBean("t1000scopePrototype");
-        System.out.println(robot.getHand());
-        System.out.println(robot.getHead());
+        System.out.println(robot);
 
     }
 }
