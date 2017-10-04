@@ -8,56 +8,7 @@
 
 >
 
-
-
-    <bean id="t1000default" class="ru.testspring.impl.robot.ModelT1000"
-    p:hand-ref="sonyHand"
-    p:head-ref="sonyHead"
-    p:leg-ref="sonyLeg"
-    >
-        <constructor-arg value="red" index="0" type="String"/>
-        <constructor-arg value="2006" index="1" type="int"/>
-        <constructor-arg value="true" index="2" type="boolean"/>
-    </bean>
-
-    <bean id="t1000scopeSingleton" class="ru.testspring.impl.robot.ModelT1000"
-          c:leg-ref="sonyLeg"
-          c:head-ref="sonyHead"
-          c:hand-ref="sonyHand"
-          scope="singleton"
-
-          lazy-init="true"
-          />
-    <bean id="t1000scopePrototype" class="ru.testspring.impl.robot.ModelT1000"
-          c:leg-ref="sonyLeg"
-          c:head-ref="sonyHead"
-          c:hand-ref="sonyHand"
-          scope="prototype"
-
-          />
-
-    <bean id="t1000Empty" class="ru.testspring.impl.robot.ModelT1000">
-        <constructor-arg ref="sonyLeg"/>
-        <constructor-arg ref="sonyHead"/>
-        <constructor-arg ref="toshibaHand"/>
-    </bean>
-
-    <bean id="t1000Full" class="ru.testspring.impl.robot.ModelT1000"
-        p:hand-ref="toshibaHand"
-        p:head-ref="sonyHead"
-        p:leg-ref="sonyLeg"
-        c:color="Blue"
-        c:year="2006"
-        c:soundEnable="true"
-    />
-
-    <bean id="sonyHand" class="ru.testspring.impl.sony.SonyHand" scope="prototype"/>
-    <bean id="sonyHead" class="ru.testspring.impl.sony.SonyHead" scope="singleton"/>
-    <bean id="sonyLeg" class="ru.testspring.impl.sony.SonyLeg"/>
-
-    <bean id="toshibaHand" class="ru.testspring.impl.toshiba.ToshibaHand"/>
-    <bean id="toshibaHead" class="ru.testspring.impl.toshiba.ToshibaHead"/>
-    <bean id="toshibaLeg" class="ru.testspring.impl.toshiba.ToshibaLeg"/>
+    <import resource="RobotT1000Context.xml"/>
 
     <bean class="ru.testspring.main.MyBeanPostProcessor"/>
 
