@@ -9,8 +9,8 @@ public class Start {
     public static void main(String[] args){
 
         ApplicationContext context = new ClassPathXmlApplicationContext("configuration/ApplicationContext.xml");
-        ModelT1000 robot = (ModelT1000)context.getBean("t1000default");
-        
+        ModelT1000 robot = (ModelT1000)context.getBean("t1000");
+
 
     }
 }

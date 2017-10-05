@@ -10,6 +10,6 @@
 
     <import resource="RobotT1000Context.xml"/>
 
-    <bean class="ru.testspring.main.MyBeanPostProcessor"/>
+
 
 </beans>

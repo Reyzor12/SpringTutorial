@@ -4,51 +4,32 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
+
+       default-lazy-init="true"
 >
     <import resource="SonyContext.xml"/>
     <import resource="ToshibaContext.xml"/>
     <import resource="DatabaseContext.xml"/>
 
-    <bean id="t1000default" class="ru.testspring.impl.robot.ModelT1000"
-          p:hand-ref="sonyHand"
-          p:head-ref="sonyHead"
-          p:leg-ref="sonyLeg"
-          depends-on="databaseConnection"
-    >
-        <constructor-arg value="red" index="0" type="String"/>
-        <constructor-arg value="2006" index="1" type="int"/>
-        <constructor-arg value="true" index="2" type="boolean"/>
+    <bean id="t1000" class="ru.testspring.impl.robot.ModelT1000"
+          parent="BaseModel">
+        <constructor-arg value="red" index="3" type="String"/>
+        <constructor-arg value="2006" index="4" type="int"/>
+        <constructor-arg value="true" index="5" type="boolean"/>
     </bean>
 
-    <bean id="t1000scopeSingleton" class="ru.testspring.impl.robot.ModelT1000"
-          c:leg-ref="sonyLeg"
-          c:head-ref="sonyHead"
-          c:hand-ref="sonyHand"
-          scope="singleton"
-
-          lazy-init="true"
-    />
-    <bean id="t1000scopePrototype" class="ru.testspring.impl.robot.ModelT1000"
-          c:leg-ref="sonyLeg"
-          c:head-ref="sonyHead"
-          c:hand-ref="sonyHand"
-          scope="prototype"
-
-    />
 
     <bean id="t1000Empty" class="ru.testspring.impl.robot.ModelT1000">
-        <constructor-arg ref="sonyLeg"/>
+
         <constructor-arg ref="sonyHead"/>
-        <constructor-arg ref="toshibaHand"/>
+        <constructor-arg ref="sonyHand"/>
+        <constructor-arg ref="sonyLeg"/>
     </bean>
 
-    <bean id="t1000Full" class="ru.testspring.impl.robot.ModelT1000"
-          p:hand-ref="toshibaHand"
-          p:head-ref="sonyHead"
-          p:leg-ref="sonyLeg"
-          c:color="Blue"
-          c:year="2006"
-          c:soundEnable="true"
-    />
+    <bean id="BaseModel">
+        <constructor-arg ref="sonyHead" index="0"/>
+        <constructor-arg ref="sonyHand" index="1"/>
+        <constructor-arg ref="sonyLeg" index="2"/>
+    </bean>
 
 </beans>
