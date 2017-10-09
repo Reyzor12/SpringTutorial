@@ -9,7 +9,8 @@
 >
 
     <import resource="RobotT1000Context.xml"/>
-
-
+    <bean id="t1000conveyor" class="ru.testspring.impl.converyor.RobotT1000Conveyor">
+        <lookup-method name="createRobot" bean="t1000"/>
+    </bean>
 
 </beans>
