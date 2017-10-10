@@ -1,4 +1,4 @@
-package ru.testspring.impl.robot;
+package ru.testspring.abstr;
 
 import ru.testspring.interfaces.Hand;
 import ru.testspring.interfaces.Head;

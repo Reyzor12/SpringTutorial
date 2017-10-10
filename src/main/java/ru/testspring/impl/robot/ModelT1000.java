@@ -2,10 +2,10 @@ package ru.testspring.impl.robot;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import ru.testspring.abstr.BaseModel;
 import ru.testspring.interfaces.Hand;
 import ru.testspring.interfaces.Head;
 import ru.testspring.interfaces.Leg;
-import ru.testspring.interfaces.Robot;
 
 public class ModelT1000 extends BaseModel implements InitializingBean,DisposableBean {
 

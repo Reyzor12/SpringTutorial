@@ -22,6 +22,19 @@
         <replaced-method name="action" replacer="ActionReplacer"></replaced-method>
     </bean>
 
+    <bean name="t1000Pool" class="ru.testspring.impl.pool.T1000Pool">
+        <property name="robotCollection">
+            <list>
+                <ref bean="t1000"/>
+                <bean class="ru.testspring.impl.robot.ModelT1000" parent="BaseModel" scope="prototype">
+                    <constructor-arg value="blue" index="3" type="java.lang.String"/>
+                    <constructor-arg value="2000" index="4" type="int"/>
+                    <constructor-arg value="false" index="5" type="boolean"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
 
     <bean id="t1000Empty" class="ru.testspring.impl.robot.ModelT1000">
 
