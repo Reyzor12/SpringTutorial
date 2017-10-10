@@ -21,23 +21,31 @@
 
 
     </bean>
-
     <bean name="t1000Pool" class="ru.testspring.impl.pool.T1000Pool">
         <constructor-arg name="robotCollection">
-            <map>
-                <entry key="2005" value-ref="t1000"/>
-                <entry key="2006" value-ref="t1000"/>
-                <entry key="2007">
-                    <bean class="ru.testspring.impl.robot.ModelT1000" parent="BaseModel">
-                        <constructor-arg value="blue" index="3" type="java.lang.String"/>
-                        <constructor-arg value="2012" index="4" type="int"/>
-                        <constructor-arg value="true" index="5" type="boolean"/>
-                    </bean>
-                </entry>
-            </map>
+            <list>
+                <ref bean="t1000"/>
+                <bean class="ru.testspring.impl.robot.ModelT1000" parent="BaseModel">
+                    <constructor-arg value="gold" index="3" type="String"/>
+                    <constructor-arg value="2006" index="4" type="int"/>
+                    <constructor-arg value="true" index="5" type="boolean"/>
+                </bean>
+
+                <bean class="ru.testspring.impl.robot.ModelT1000" parent="BaseModel">
+                    <constructor-arg value="gold" index="3" type="String"/>
+                    <constructor-arg value="2008" index="4" type="int"/>
+                    <constructor-arg value="false" index="5" type="boolean"/>
+                </bean>
+            </list>
         </constructor-arg>
     </bean>
 
+    <bean id="t1000GoldPool" class="ru.testspring.impl.pool.T1000Pool">
+        <constructor-arg name="robotCollection"
+                         value="#{t1000Pool.robotCollection.?[color.toUpperCase() eq 'GOLD']}">
+
+        </constructor-arg>
+    </bean>
 
     <bean id="t1000Empty" class="ru.testspring.impl.robot.ModelT1000">
 

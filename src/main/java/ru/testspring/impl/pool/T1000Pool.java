@@ -8,21 +8,21 @@ import java.util.Map;
 
 public class T1000Pool implements RobotPool {
 
-    private Map<String,Robot> robotCollection;
+    private Collection<Robot> robotCollection;
 
-    public T1000Pool(Map<String,Robot> robotCollection){
+    public T1000Pool(Collection<Robot> robotCollection){
+        super();
         this.robotCollection = robotCollection;
     }
 
-    public Map<String,Robot> getRobotCollection() {
+    public Collection<Robot> getRobotCollection() {
         return robotCollection;
     }
 
-    public void action(){
+    public void showRobot(){
         if(robotCollection == null) return;
-        for(Map.Entry<String,Robot> entry: robotCollection.entrySet()){
-            System.out.println(entry.getKey());
-            entry.getValue().action();
+        for(Robot robot: robotCollection){
+            robot.action();
         }
     }
 }
