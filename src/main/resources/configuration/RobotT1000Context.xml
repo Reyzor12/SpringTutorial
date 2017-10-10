@@ -11,11 +11,15 @@
     <import resource="ToshibaContext.xml"/>
     <import resource="DatabaseContext.xml"/>
 
+    <bean name="ActionReplacer" class="ru.testspring.impl.robot.ActionReplacer"/>
+
     <bean id="t1000" class="ru.testspring.impl.robot.ModelT1000"
           parent="BaseModel" scope="prototype">
         <constructor-arg value="red" index="3" type="String"/>
         <constructor-arg value="2006" index="4" type="int"/>
         <constructor-arg value="true" index="5" type="boolean"/>
+
+        <replaced-method name="action" replacer="ActionReplacer"></replaced-method>
     </bean>
 
 
