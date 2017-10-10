@@ -14,12 +14,10 @@
     <bean name="ActionReplacer" class="ru.testspring.impl.robot.ActionReplacer"/>
 
     <bean id="t1000" class="ru.testspring.impl.robot.ModelT1000"
-          parent="BaseModel" scope="prototype">
-        <constructor-arg value="red" index="3" type="String"/>
+          parent="BaseModel" scope="prototype" autowire="byType">
+        <!--<constructor-arg value="red" index="3" type="String"/>
         <constructor-arg value="2006" index="4" type="int"/>
-        <constructor-arg value="true" index="5" type="boolean"/>
-
-
+        <constructor-arg value="true" index="5" type="boolean"/>-->
     </bean>
     <bean name="t1000Pool" class="ru.testspring.impl.pool.T1000Pool">
         <constructor-arg name="robotCollection">
