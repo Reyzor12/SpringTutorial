@@ -2,12 +2,8 @@ package ru.testspring.main;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.testspring.impl.converyor.RobotT1000Conveyor;
-import ru.testspring.impl.pool.T1000Pool;
 import ru.testspring.impl.robot.ModelT1000;
 import ru.testspring.interfaces.Robot;
-import ru.testspring.interfaces.RobotConveyor;
-import ru.testspring.interfaces.RobotPool;
 
 public class Start {
 
