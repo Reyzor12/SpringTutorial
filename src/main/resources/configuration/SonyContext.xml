@@ -3,10 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true"
-       
+
 >
 
-    <bean id="sonyHand" class="ru.testspring.impl.sony.SonyHand" />
+    <bean id="sonyHandGold" class="ru.testspring.impl.sony.SonyHand" >
+        <property name="color" value="gold"></property>
+        <qualifier value="Gold"></qualifier>
+    </bean>
+    <bean id="sonyHandBronze" class="ru.testspring.impl.sony.SonyHand" >
+        <property name="color" value="bronze"></property>
+        <qualifier value="Bronze"></qualifier>
+    </bean>
     <bean id="sonyHead" class="ru.testspring.impl.sony.SonyHead"/>
     <bean id="sonyLeg" class="ru.testspring.impl.sony.SonyLeg"/>
 
