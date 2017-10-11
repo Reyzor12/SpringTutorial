@@ -14,7 +14,7 @@ public abstract class BaseModel implements Robot {
     @Qualifier("sonyHead")
     private Head head;
     @Autowired
-    @Qualifier("Gold")
+    @Qualifier("sonyHand")
     private Hand hand;
     @Autowired
     @Qualifier("sonyLeg")

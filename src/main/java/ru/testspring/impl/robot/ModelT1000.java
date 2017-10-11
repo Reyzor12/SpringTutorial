@@ -2,11 +2,17 @@ package ru.testspring.impl.robot;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import ru.testspring.abstr.BaseModel;
 import ru.testspring.interfaces.Hand;
 import ru.testspring.interfaces.Head;
 import ru.testspring.interfaces.Leg;
 
+@Component
 public class ModelT1000 extends BaseModel implements InitializingBean,DisposableBean {
 
     private String color;
@@ -32,6 +38,19 @@ public class ModelT1000 extends BaseModel implements InitializingBean,Disposable
         this.color=color;
         this.year=year;
         this.soundEnable=soundEnable;
+    }
+
+    @Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public ModelT1000 model1(){
+        return new ModelT1000();
+    }
+
+
+    @Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public ModelT1000 model2(){
+        return new ModelT1000("red",2005,false);
     }
 
     public void action() {
