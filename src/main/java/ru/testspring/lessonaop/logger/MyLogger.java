@@ -1,18 +1,25 @@
 package ru.testspring.lessonaop.logger;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MyLogger {
 
-    public void printValue(Object obj){
-        System.out.println("Value " + obj);
-    }
+   public Object watchTime(ProceedingJoinPoint joinPoint) {
 
-    public void init(){
-        System.out.println("Start");
-    }
-    public void end(){
-        System.out.println("Finish");
-    }
+       long start = System.currentTimeMillis();
+       System.out.println("method begin " + joinPoint.getSignature().toShortString());
+       Object output = null;
+       try{
+           output = joinPoint.proceed();
+       } catch(Throwable e){
+           e.printStackTrace();
+       }
+
+       long time =System.currentTimeMillis()-start;
+       System.out.println("method end " + joinPoint.getSignature().toShortString() + ", time = " + time + "ms");
+
+       return output;
+   }
 }

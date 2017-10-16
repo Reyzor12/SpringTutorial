@@ -10,10 +10,7 @@
     <context:component-scan base-package="ru.testspring.lessonaop.*"/>
     <aop:config>
         <aop:aspect id="log" ref="myLogger">
-            <aop:pointcut id="getValue" expression="execution(* ru.testspring.lessonaop.bussiness.BussinessAOP.*(..))"/>
-            <aop:before pointcut-ref="getValue" method="init"/>
-            <aop:after pointcut-ref="getValue" method="end"/>
-            <aop:after-returning pointcut-ref="getValue" returning="obj" method="printValue"/>
+            <aop:around pointcut="execution(public * *(..))" method="watchTime"/>
         </aop:aspect>
     </aop:config>
 </beans>
