@@ -14,6 +14,6 @@ public class Start {
         ApplicationContext context = new ClassPathXmlApplicationContext("configuration/ApplicationContext1.xml");
         FileManager fileManager = (FileManager)context.getBean("fileManager");
         fileManager.getExtensionCount("C:\\Windows\\System32");
-        fileManager.getExtensionCount("C:\\Windows");
+        fileManager.getExtensionList("C:\\Windows");
     }
 }

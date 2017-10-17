@@ -1,6 +1,8 @@
 package ru.testspring.lessonaop.bussiness;
 
 import org.springframework.stereotype.Component;
+import ru.testspring.lessonaop.annotation.ShowResult;
+import ru.testspring.lessonaop.annotation.ShowTime;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -12,6 +14,8 @@ import java.util.TreeSet;
 @Component
 public class FileManager {
 
+    @ShowResult
+    @ShowTime
     public Set<String> getExtensionList(String folder){
         File dir = new File(folder);
         Set<String> extList = new TreeSet<String>();
@@ -26,6 +30,7 @@ public class FileManager {
         return extList;
     }
 
+    @ShowResult
     public Map<String,Integer> getExtensionCount(String folder){
         File dir = new File(folder);
         Map<String, Integer> map =new HashMap<String,Integer>();

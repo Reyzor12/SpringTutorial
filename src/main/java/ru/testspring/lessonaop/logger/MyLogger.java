@@ -14,10 +14,10 @@ import java.util.Set;
 @Aspect
 public class MyLogger {
 
-    @Pointcut("execution(* *(..)) && within(ru.testspring.lessonaop.bussiness.*)")
+    @Pointcut("execution(* *(..))")
     private void allMethods(){}
 
-   @Around("allMethods()")
+   @Around("allMethods() && @annotation(ru.testspring.lessonaop.annotation.ShowTime)")
    public Object watchTime(ProceedingJoinPoint joinPoint) {
 
        long start = System.currentTimeMillis();
@@ -35,7 +35,7 @@ public class MyLogger {
        return output;
    }
 
-   @AfterReturning(pointcut="allMethods()",returning="obj")
+   @AfterReturning(pointcut="allMethods() && @annotation(ru.testspring.lessonaop.annotation.ShowResult)",returning="obj")
    public void print(Object obj){
 
        System.out.println("Print info begin>>>");
