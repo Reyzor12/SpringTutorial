@@ -1,14 +1,23 @@
 package ru.testspring.lessonaop.logger;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.Set;
 
 @Component
+@Aspect
 public class MyLogger {
 
+    @Pointcut("execution(* *(..)) && within(ru.testspring.lessonaop.bussiness.*)")
+    private void allMethods(){}
+
+   @Around("allMethods()")
    public Object watchTime(ProceedingJoinPoint joinPoint) {
 
        long start = System.currentTimeMillis();
@@ -26,6 +35,7 @@ public class MyLogger {
        return output;
    }
 
+   @AfterReturning(pointcut="allMethods()",returning="obj")
    public void print(Object obj){
 
        System.out.println("Print info begin>>>");
